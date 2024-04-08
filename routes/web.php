@@ -1,6 +1,8 @@
 <?php
 
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/hello', function () {
-    return 'Hello, Kirill';
+Route::get('/hello', function (){
+    //return 'Hello from data-aggregator';
+    return today()->toDateString();
 });
 Route::get('/', function () {
     return view('welcome');
