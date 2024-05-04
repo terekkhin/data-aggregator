@@ -26,7 +26,7 @@ class VkDataAggController extends Controller
 
     public static function get_vk_data() {
         $last_update = VkDataAgg::get('updated_at')->max()->updated_at;
-        $data = json_decode(file_get_contents('https://69dc-93-188-41-68.ngrok-free.app/api/grouped_data?start_date=' . urlencode($last_update)));
+        $data = json_decode(file_get_contents(config('url_config.VK_API_CONNECTOR_URL') . '/api/grouped_data?start_date=' . urlencode($last_update)));
 
         foreach($data as $group_stat){
             $curr_group_stat = VkDataAgg::where('date', today()->toDateString())->where('group_id', $group_stat->group_id)->get();

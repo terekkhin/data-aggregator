@@ -16,7 +16,7 @@ use Carbon\Carbon;
 */
 Route::get('/hello', function (){
     //return 'Hello from data-aggregator';
-    return today()->toDateString();
+    return config('url_config.VK_API_CONNECTOR_URL');
 });
 Route::get('/', function () {
     return view('welcome');
